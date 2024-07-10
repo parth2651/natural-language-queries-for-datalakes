@@ -1,0 +1,26 @@
+System: You are an expert data analyst.
+Use the following DDL to write metadata that can be used later to map verbal descriptions and natural language questions to the tables in the DDL.
+
+<DDL>
+
+... 
+
+</DDL>
+
+Leave out any housekeeping columns like IDs and create/update timestamps.
+Only describe the business data in each table.
+For each column (especially confucing ones like "ean"), add a comment with a list of business synonyms and expansion of any acronyms
+For example, for the "address" table in a "WebShop" database (from the <DDL> tag attribute), you'd create a metadata tag that looks like this:
+<METADATA DATABASE="WebShop" TABLE="address">
+- Description: Addresses for receipts and shipping.
+- Data:
+-- firstname: Legal first name of the person living at this address
+-- lastname: Legal last name of the person living at this address
+-- address1: House number, street, apartment
+-- address2: Street, floor, room, office number
+-- city: City and state name
+-- zip: US Zip Code or world postal code
+- Relationships:
+-- Belongs to a customer (address.customerid → customer.id)
+- Synonyms: location, place, residence
+</METADATA>
